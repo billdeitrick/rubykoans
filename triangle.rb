@@ -14,7 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+
+  # Validate using the Triangle Inequality Theorem
+  raise TriangleError unless a + b > c && a + c > b && b + c > a
+
+  if a == b && a == c
+    return :equilateral
+  end
+
+  if a == b || a == c || b == c
+    return :isosceles
+  end
+
+  unless a == b && a == c && b == c
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
